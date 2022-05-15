@@ -1,0 +1,44 @@
+[header:]
+  constant(___TITULO___,'ContactBook 1.0')
+  constant(___DESCRICAO___,'ContactBook in Prism Technology')
+  constant(___NOME___,'ContactBook')
+  
+[dialog:]
+  addTitle('ContactBook - 1.0')
+
+[content:Contact]
+    trigger(getPeople)
+    addFieldName("Name",tbxName)
+    addFieldEmail("Email",tbxEmail)
+    addFieldPhone("Phone",tbxPhone)
+    addFieldPhone("Cell Phone",tbxCellPhone)
+
+    addButtonDefault("Save",save)
+    addButton("Back", back)
+
+[trigger:back]
+  goBack()
+
+[trigger:getPeople]
+  if existParam('id')
+    getById(people, query.id, updateScreen)
+  endif
+
+[trigger:updateScreen{data}]
+  setText(tbxName, data.name)
+  setText(tbxEmail, data.email)
+  setText(tbxPhone, data.phone)
+  setText(tbxCellPhone, data.cellPhone)
+
+
+[trigger:save]
+  obj <- json(name:getText(tbxName),
+    email:getText(tbxEmail),
+    phone:getText(tbxPhone),
+    cellPhone:getText(tbxCellPhone))
+
+  if existParam('id')
+    updateById(people, query.id, obj, back)
+  else
+    insert(people, obj, back)
+  endif

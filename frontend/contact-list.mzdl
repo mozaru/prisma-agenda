@@ -1,0 +1,39 @@
+[header:]
+  constant(___TITULO___,'ContactBook 1.0')
+  constant(___DESCRICAO___,'ContactBook in Prism Technology')
+  constant(___NOME___,'ContactBook')
+  
+[fullscreen:]
+  addTitle('ContactBook - 1.0')
+
+[content:Contact--List]
+  startBlock HeaderTable
+    addFilterField("Filter", Filter, filterData)
+    addButtonDefault("New",newContact)
+  endBlock
+  addViewCollection(vcnPeople, Fields(Name, Email, Phone, CellPhone), Operations(remove,edit))
+  trigger(init)
+
+[trigger:init]
+    getAll(people, newData)
+
+[trigger:newData{data}]
+    updateViewCollection(vcnPeople,data)
+    filter <- getTextFromFilterField(Filter)
+    filterViewCollection(vcnPeople, filter)
+
+[trigger:filterData]
+    filter <- getTextFromFilterField(Filter)
+    filterViewCollection(vcnPeople, filter)
+
+[trigger:newContact]
+  navigateTo(contact-detail)
+
+[trigger:edit{obj}]
+  navigateToExt(contact-detail,navigateParams(id:obj.id))
+
+[trigger:remove{obj}]
+  delete(people, init)
+  
+
+

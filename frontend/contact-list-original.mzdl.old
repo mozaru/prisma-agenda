@@ -1,0 +1,41 @@
+[cabecalho:]
+  constante(___TITULO___,'ContactBook 1.0')
+  constante(___DESCRICAO___,'ContactBook in Prism Technology')
+  constante(___NOME___,'ContactBook')
+  
+[fullscreen:]
+  addTitulo('ContactBook - 1.0')
+
+[dados:Contact--List]
+  startBlock HeaderTable
+    startBlock Filter
+        addFilterField("Filter", Filter, filterData)
+    endBlock
+    addBotaoDefault("New",newContact)
+  endBlock
+  addTable(tbxTable,Columns(Name, Email, Phone, CellPhone), Operations(remove,edit))
+  trigger(init)
+
+[trigger:init]
+    restApiGet('people', newData)
+
+[trigger:newData{data}]
+    updateTable(tbxTable,data)
+    filter <- getTextFromFilterField(Filter)
+    filterTable(tbxTable, filter)
+
+[trigger:filterData]
+    filter <- getTextFromFilterField(Filter)
+    filterTable(tbxTable, filter)
+
+[trigger:newContact]
+  seguirPara(contact-detail)
+
+[trigger:edit{obj}]
+  seguirParametrizadoPara(contact-detail,'id={obj.id}')
+
+[trigger:remove{obj}]
+  restApiDelete('people/{obj.id}', init)
+  
+
+

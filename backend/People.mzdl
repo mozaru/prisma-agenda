@@ -1,0 +1,32 @@
+[disable:Security]
+
+[get:/people]
+    success(repository.People.List())
+
+[get:/people/{Id}]
+    people <- repository.People.Get(Id)
+    assertNull(people,"People not found!")
+    success(people)
+
+[post:/people]
+    checkBodyFields(Name, Email, Phone, CellPhone)
+    assertBodyFieldsNotEmpty(Name, Email)
+    assertMaxLength(body.Name,30,"The name cannot be more than %param1% characters")
+    assertMinLength(body.Name,5,"The name cannot be more than %param1% characters")
+    assertMaxLength(body.Email,30,"The email cannot be more than %param1% characters")
+    assertMinLength(body.Email,10,"The name cannot be more than %param1% characters")
+    assert(repository.People.ExistEmail(body.Email),"Email already exists!")
+    people <- repository.People.Insert(data(body.Name, body.Email, body.Phone, body.CellPhone))
+    success("People {body.Name} - {body.Email} successfully inserted")
+
+[put:/people/{Id}]
+    checkBodyFields(Name, Email, Phone, CellPhone)
+    assert(repository.People.ExistAnotherIdEmail(Id, body.Email),"Email already exists!")
+    resp <- repository.People.Update(Data(Id, body.Name, body.Email, body.Phone, body.CellPhone))
+    assert(resp==false, "People not found!")
+    success("People {body.Name} changed sucessfully!")
+
+[delete:/people/{Id}]
+    people <- repository.People.Delete(Id)
+    assert(isnull(people), "People not found!")
+    success("People {people.Name} deleted sucessfully!")

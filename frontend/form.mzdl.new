@@ -1,0 +1,10 @@
+<menu>
+
+[header:]
+  constant(___TITULO___,'ContactBook 1.0')
+  constant(___DESCRICAO___,'ContactBook in Prism Technology')
+  constant(___NOME___,'ContactBook')
+  
+[%type%:]
+  addTitle('ContactBook - 1.0')
+

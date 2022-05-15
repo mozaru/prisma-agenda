@@ -1,0 +1,43 @@
+{
+    "project":"Agenda",
+    "version":"1.0",
+    "author":"Mozar Baptista da Silva",
+    "outputRootPath":"..\Agenda-coreNet5.0",
+    "inputGit":"",
+    "outputGit":"",
+    "profile":"fullstack:html5.0-dotnet5.0-sqlite3.0:1.0",
+    "constants":{
+        "DATA_BASE_TECHONOLOGY":"SQLITE",
+        "NAME_SPACE":"Agenda",
+        "BACKEND_NAME":"agenda",
+        "GUID_PROJ":"auto",
+        "GUID_SOL":"auto",
+        "GUID_CFG":"auto",
+        "GUID_BUILD":"auto",
+        "DB_HOST":"",
+        "DB_PORT":"",
+        "DB_DATABASE":"dados",
+        "DB_LOGIN":"",
+        "DB_PASSWORD":"",
+        "EMAIL_HOST":"smtp.gmail.com",
+        "EMAIL_PORT":"587",
+        "EMAIL_PROTOCOL":"ssl",
+        "EMAIL_USER":"prismplat@gmail.com",
+        "EMAIL_PASSWORD":"ggqrkaoabpxidtir",
+        "SERVER_HOST":"",
+        "OAUTH_CHAVE":"TESTE de CHAVE DE ACESSO 2022041",
+        "OAUTH_CHAVES_VALIDADE":"2",
+        "OAUTH_ACCESS_TOKEN_VALIDADE":"40",
+        "OAUTH_REFRESH_TOKEN_VALIDADE":"8",
+        "OAUTH_TIPO_TOKEN_ACESSO":"Acesso",
+        "OAUTH_TIPO_TOKEN_REFRESH":"Refresh",
+        "OAUTH_TIPO_TOKEN_DEFAULT":"_OAUTH_TIPO_TOKEN_ACESSO_",
+        "OAUTH_PERFIL_PADRAO":"Admin",
+        "AD_PATH":"",
+        "AD_USUARIO":"",
+        "AD_SENHA":""        
+    }
+}
+
+
+
