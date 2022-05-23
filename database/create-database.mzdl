@@ -8,7 +8,7 @@
     createEmail(Email)
     createPhone(Phone)
     createPhone(CellPhone)
-    
+
     createExist(ExistEmail,queryFields(Email))
     createExist(ExistAnotherIdEmail,queryFields(notId,Email))
     createQuery(List,queryFields(),resultFields(Id, Name, Email, Phone, CellPhone))
