@@ -2,7 +2,7 @@
     "project":"Agenda",
     "version":"1.0",
     "author":"Mozar Baptista da Silva",
-    "outputRootPath":"..\Agenda-coreNet5.0",
+    "outputRootPath":"../Agenda-coreNet5.0",
     "inputGit":"",
     "outputGit":"",
     "profile":"fullstack:html5.0-dotnet5.0-sqlite3.0:1.0",

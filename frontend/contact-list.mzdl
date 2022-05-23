@@ -33,7 +33,7 @@
   navigateToExt(contact-detail,navigateParams(id:obj.id))
 
 [trigger:remove{obj}]
-  delete(people, init)
+  delete(people, obj.id, init)
   
 
 

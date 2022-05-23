@@ -8,14 +8,12 @@
     createEmail(Email)
     createPhone(Phone)
     createPhone(CellPhone)
-    createImage(Photo)
     
     createExist(ExistEmail,queryFields(Email))
     createExist(ExistAnotherIdEmail,queryFields(notId,Email))
     createQuery(List,queryFields(),resultFields(Id, Name, Email, Phone, CellPhone))
-    createGet(Get,queryFields(Id), resultFields(Id, Name, Email, Phone, CellPhone, Photo))
-    createInsert(Insert,setFields(Name, Email, Phone, CellPhone, Photo))
+    createGet(Get,queryFields(Id), resultFields(Id, Name, Email, Phone, CellPhone))
+    createInsert(Insert,setFields(Name, Email, Phone, CellPhone))
     createUpdateComplete(Update,queryFields(Id),setFields(Name, Email, Phone, CellPhone))
-    createUpdate(ChangePhoto, queryFields(Id), updateParams(Photo))
     createDelete(Delete, queryFields(Id),resultFields(Id, Name, Email, Phone, CellPhone))
 
