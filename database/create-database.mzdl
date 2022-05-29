@@ -3,7 +3,7 @@
     createUserApi(api,123456)
 
 [entity:People]
-    createIdKey(Id)
+    createKey(Id)
     createName(Name)
     createEmail(Email)
     createPhone(Phone)

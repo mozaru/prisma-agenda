@@ -38,7 +38,7 @@
     cellphone:getText(tbxCellPhone))
 
   if existParam('id')
-    updateById(people, query.id, obj, back)
+    updateByKey(people, query.id, obj, back)
   else
     insert(people, obj, back)
   endif
