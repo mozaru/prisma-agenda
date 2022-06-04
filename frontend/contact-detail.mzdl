@@ -1,10 +1,4 @@
-[header:]
-  constant(___TITULO___,'ContactBook 1.0')
-  constant(___DESCRICAO___,'ContactBook in Prism Technology')
-  constant(___NOME___,'ContactBook')
-  
-[dialog:]
-  addTitle('ContactBook - 1.0')
+<components.dialog>
 
 [content:Contact]
     trigger(getPeople)
@@ -12,6 +6,7 @@
     addFieldEmail("Email",tbxEmail)
     addFieldPhone("Phone",tbxPhone)
     addFieldPhone("Cell Phone",tbxCellPhone)
+    addFieldImage("Photo",tbxPhoto)
 
     addButtonDefault("Save",save)
     addButton("Back", back)
@@ -29,13 +24,14 @@
   setText(tbxEmail, data.email)
   setText(tbxPhone, data.phone)
   setText(tbxCellPhone, data.cellphone)
-
+  setContentFieldImage(tbxPhoto,data.photo)
 
 [trigger:save]
   obj <- json(name:getText(tbxName),
     email:getText(tbxEmail),
     phone:getText(tbxPhone),
-    cellphone:getText(tbxCellPhone))
+    cellphone:getText(tbxCellPhone),
+    photo:getContentFieldImage(tbxPhoto))
 
   if existParam('id')
     updateByKey(people, query.id, obj, back)
