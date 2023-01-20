@@ -1,2 +1,2 @@
-./.mzbuild
-./.vars
+*.mzdlbuild
+*.vars
